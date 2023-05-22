@@ -22,14 +22,6 @@ docker run -d \
   -e COLOR_BALANCE="50" \
   -e WHITE_BALANCE="auto" \
   -e EXPOSURE="auto" \
-  -e BACKLIGHT_COMPENSATION="on" \
-  -e ROTATION="0" \
-  -e HORIZONTAL_FLIP="false" \
-  -e VERTICAL_FLIP="false" \
-  -e POWER_LINE_FILTER="enabled" \
-  -e GAIN="auto" \
-  -e CHROMA_GAIN_CONTROL="" \
-  -e FRAMES_PER_SECOND="30" \
   --restart always \
   undermozes/mjpg-streamer
 
@@ -67,30 +59,6 @@ Sets the white balance mode to "auto". This parameter automatically adjusts the 
 - **`-e EXPOSURE="auto"`**  
 Sets the exposure mode to "auto". This parameter automatically adjusts the exposure of the video stream.
 
-- **`-e BACKLIGHT_COMPENSATION="on"`**  
-Enables the backlight compensation feature. This parameter compensates for backlighting in the video stream.
-
-- **`-e ROTATION="0"`**  
-Sets the rotation angle to 0 degrees. This parameter rotates the video stream by the specified angle.
-
-- **`-e HORIZONTAL_FLIP="false"`**  
-Disables horizontal flipping of the video stream. This parameter prevents the video from being horizontally mirrored.
-
-- **`-e VERTICAL_FLIP="false"`**  
-Disables vertical flipping of the video stream. This parameter prevents the video from being vertically mirrored.
-
-- **`-e POWER_LINE_FILTER="enabled"`**  
-Enables the power line filter. This parameter filters out power line interference from the video stream.
-
-- **`-e GAIN="auto"`**  
-Sets the gain mode to "auto". This parameter automatically adjusts the gain of the video stream.
-
-- **`-e CHROMA_GAIN_CONTROL=""`**  
-This parameter controls the chroma gain of the video stream. The value is not specified in the given command.
-
-- **`-e FRAMES_PER_SECOND="30"`**  
-Sets the frame rate to 30 frames per second. This parameter determines the number of frames captured and streamed per second.
-
 ## Webinterface
 
 mjpg-streamer includes a webinterface that is available under this URL:
@@ -111,4 +79,10 @@ To get a single JPEG just open this URL:
 
 ```
 http://localhost:8080/?action=snapshot
+```
+
+
+Example command
+```
+docker run -d --privileged -v /dev/video0:/dev/video0 -p 8080:8080 -e RESOLUTION="2560x1440" -e BRIGHTNESS=55 -e CONTRAST=50 -e SHARPNESS=65 -e SATURATION=60 -e WHITE_BALANCE="auto" -e EXPOSURE=0 undermozes/mjpg-streamer
 ```

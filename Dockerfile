@@ -12,4 +12,4 @@ WORKDIR mjpg-streamer/mjpg-streamer-experimental
 # build mjpg-streamer
 RUN make USE_LIBV4L2=true
 
-ENTRYPOINT ./mjpg_streamer -i "./input_uvc.so -r ${RESOLUTION:-1920x1080}" -o "./output_http.so -w ./www" -br ${BRIGHTNESS:-auto} -co ${CONTRAST:-} -sh ${SHARPNESS:-} -sa ${SATURATION:-} -cb ${COLOR_BALANCE:-} -wb ${WHITE_BALANCE:-} -ex ${EXPOSURE:-} -bk ${BACKLIGHT_COMPENSATION:-} -rot ${ROTATION:-} -hf ${HORIZONTAL_FLIP:-false} -vf ${VERTICAL_FLIP:-false} -pl ${POWER_LINE_FILTER:-disabled} -gain ${GAIN:-auto} -cagc ${CHROMA_GAIN_CONTROL:-} --fps ${FRAMES_PER_SECOND:-}
+ENTRYPOINT ./mjpg_streamer -i "./input_uvc.so -r ${RESOLUTION:-1920x1080} -f 12 -e 5  -br ${BRIGHTNESS:-auto} -co ${CONTRAST:-50} -sh ${SHARPNESS:-60} -sa ${SATURATION:-70} -wb ${WHITE_BALANCE:-auto} -ex ${EXPOSURE:-auto}" -o "./output_http.so -w ./www"
