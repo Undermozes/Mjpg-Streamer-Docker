@@ -14,22 +14,22 @@ docker run -d \
   --privileged \
   -v /dev/video0:/dev/video0 \
   -p 8080:8080 \
-  - **`-e RESOLUTION="1280x720" \
-  - **`-e BRIGHTNESS="50" \
-  - **`-e CONTRAST="70" \
-  - **`-e SHARPNESS="80" \
-  - **`-e SATURATION="60" \
-  - **`-e COLOR_BALANCE="50" \
-  - **`-e WHITE_BALANCE="auto" \
-  - **`-e EXPOSURE="auto" \
-  - **`-e BACKLIGHT_COMPENSATION="on" \
-  - **`-e ROTATION="0" \
-  - **`-e HORIZONTAL_FLIP="false" \
-  - **`-e VERTICAL_FLIP="false" \
-  - **`-e POWER_LINE_FILTER="enabled" \
-  - **`-e GAIN="auto" \
-  - **`-e CHROMA_GAIN_CONTROL="" \
-  - **`-e FRAMES_PER_SECOND="30" \
+  -e RESOLUTION="1280x720" \
+  -e BRIGHTNESS="50" \
+  -e CONTRAST="70" \
+  -e SHARPNESS="80" \
+  -e SATURATION="60" \
+  -e COLOR_BALANCE="50" \
+  -e WHITE_BALANCE="auto" \
+  -e EXPOSURE="auto" \
+  -e BACKLIGHT_COMPENSATION="on" \
+  -e ROTATION="0" \
+  -e HORIZONTAL_FLIP="false" \
+  -e VERTICAL_FLIP="false" \
+  -e POWER_LINE_FILTER="enabled" \
+  -e GAIN="auto" \
+  -e CHROMA_GAIN_CONTROL="" \
+  -e FRAMES_PER_SECOND="30" \
   --restart always \
   undermozes/mjpg-streamer
 
